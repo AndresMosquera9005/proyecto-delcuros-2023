@@ -1,0 +1,23 @@
+.cripto {
+    border: 1px solid red;
+    border-left: 5px solid red;
+    border-bottom: 5px solid red;
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+.informacion {
+    color: rgb(191, 191, 191);
+}
+
+.label {
+    color: skyblue;
+}
+
+.positivo {
+    color: rgb(88, 160, 88);
+}
+
+.negativo {
+    color: red;
+}

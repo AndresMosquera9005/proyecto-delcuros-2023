@@ -1,7 +1,22 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App'
+import { BrowserRouter, Route , Routes } from 'react-router-dom'
+import App from "./componentes/App"
+import "../src/main.css"
+import Saludo from "./componentes/Saludo"
+import Cuadricula from './componentes/Cuadricula'
+import Home from './componentes/Home'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <App />  
+  <BrowserRouter>
+    <Routes>
+      <Route path='/' element={<App />}>
+        <Route index element={<Home />} />
+        <Route path='saludo' element={<Saludo />} />
+      </Route>
+      <Route path='/criptomonedas' element={<App />}>
+        <Route index element={<Cuadricula />}/>
+      </Route>
+    </Routes>   
+  </BrowserRouter>  
 )
