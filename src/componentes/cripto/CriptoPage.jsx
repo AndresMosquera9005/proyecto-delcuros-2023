@@ -8,11 +8,20 @@ const CriptoPage = () => {
     const params = useParams()
 
     const[cripto, setCripto ] = useState({})
+    const[history, setHistory] = useState([])
 
     useEffect(() => {
         axios.get(`${API_URL}assets/${params.id}`)
         .then(data =>{
             setCripto(data.data.data)
+        })
+        .catch(e => console.error(e))
+    }, [])
+
+    useEffect(() => {
+        axios.get(`${API_URL}assets/${params.id}/history?interval=d1`)
+        .then(data =>{
+            setHistory(data.data.data)
         })
         .catch(e => console.error(e))
     }, [])
@@ -25,8 +34,28 @@ const CriptoPage = () => {
                     <li><span className="label">Nombre: </span>{cripto.name}</li>
                     <li><span className="label">Rango: </span>{cripto.rank}</li>
                     <li><span className="label">Identificaciòn: </span>{cripto.id}</li>
+                    <li><span className="label">Precio: </span>{cripto.priceUsd}</li>
                 </ul>
             </div>
+            <h2>Historial</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Precio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        history.map(({date, priceUsd, time}) => (
+                            <tr key={time}>
+                                <td>{date}</td>
+                                <td>{priceUsd}</td>
+                            </tr>
+                        ))
+                    }
+                </tbody>
+            </table>
         </>
     )
 }
