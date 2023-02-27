@@ -1,7 +1,8 @@
 //import "./Cripto.css"
 import "../cripto/Cripto.css"
+import { Link } from "react-router-dom"
 
-const Cripto =({ name, priceUsd, symbol, rank, suplly, vwap24Hr}) =>{
+const Cripto =({ id, name, priceUsd, symbol, rank, suplly, vwap24Hr}) =>{
     return(
         <div className="cripto">
             <h2>{name}</h2>
@@ -14,9 +15,9 @@ const Cripto =({ name, priceUsd, symbol, rank, suplly, vwap24Hr}) =>{
                     <span className="label">Porcentaje: </span>
                     <span className={ parseFloat(vwap24Hr) > 0 ? "positivo" : "negativo" }>
                         {parseFloat(vwap24Hr).toFixed(3)}%
-                    </span>
-                    
+                    </span>  
                 </p>
+                <Link to={`/criptomonedas/${id}`}>Ver detalles</Link>
             </div>
         </div>
     )

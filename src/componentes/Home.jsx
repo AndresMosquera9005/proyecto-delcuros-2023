@@ -4,7 +4,7 @@ import "./estiloCss/Home.css"
 const Home = () => {
     return(
         <>
-            <h1>Hola Felipiño, Bienvenido </h1>
+            <h1>Hola Felipiño, Bienvenido a las criptomonedas. </h1>
             <p>Felipiño conozca las 100 criptos más usadas</p>
             <Link className="link" to="/criptomonedas">Ver las criptos </Link>
         </>
