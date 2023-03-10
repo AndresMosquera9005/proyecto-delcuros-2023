@@ -1,4 +1,3 @@
-//import "./Cripto.css"
 import "../cripto/Cripto.css"
 import { Link } from "react-router-dom"
 
