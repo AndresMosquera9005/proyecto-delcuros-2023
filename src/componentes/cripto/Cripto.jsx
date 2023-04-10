@@ -1,5 +1,5 @@
-import "../cripto/Cripto.css"
 import { Link } from "react-router-dom"
+import "../cripto/Cripto.css"
 
 const Cripto =({ id, name, priceUsd, symbol, rank, suplly, vwap24Hr}) =>{
     return(

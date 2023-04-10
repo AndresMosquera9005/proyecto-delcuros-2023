@@ -1,12 +1,18 @@
-import { Outlet } from "react-router-dom"
+import {Outlet, Navigate} from "react-router-dom"
 import Menu from "./menu/Menu"
+import "./App.css"
 
 const App = () => {
+
+
+    if( !localStorage.getItem("tokenJMmarket")) return <Navigate to="/login" />
+
+
     return (
-        <>
+        <div className="app-container">
             <Menu />
             <Outlet />
-        </>
+        </div>
     )
 
 }

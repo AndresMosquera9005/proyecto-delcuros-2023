@@ -23,7 +23,7 @@ function Cuadricula() {
               rank={rank}
               suplly={suplly}
               vwap24Hr={vwap24Hr}
-              //id={id}
+              id={id}
             />
           ))
         }

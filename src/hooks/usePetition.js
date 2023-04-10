@@ -7,7 +7,6 @@ const usePetition = (endpoint) => {
 
     const[data, setData ] = useState()
     const[cargando, setCargando ] = useState(false)
-    const[error, setError ] = useState()
 
     useEffect(() => {
         setCargando(true)
@@ -19,11 +18,11 @@ const usePetition = (endpoint) => {
         })
         .catch(e => {
             setCargando(false)
-            setError(e)
+            console.error(e)
         })
     }, [])
 
-    return [data, cargando, error]
+    return [data, cargando]
 }
 
 export default usePetition;

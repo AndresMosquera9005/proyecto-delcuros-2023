@@ -1,16 +1,13 @@
+import {useContext}  from "react"
+import { NavLink, useNavigate } from "react-router-dom"
+import UserContext from "../../context/UserContext"
 import "../menu/Menu.css"
-import { NavLink } from "react-router-dom"
-import { useState, useEffect } from "react"
 
 const Menu = () => {
-    
-    const [ usuario, setUsuario ] = useState({})
-    useEffect(() =>{
-        setUsuario({
-            name: "Javier Mosquera",
-            registered: "08-Marzo-2023"
-        })
-    },[])
+
+    const navigation = useNavigate()
+
+    const usuario = useContext(UserContext)
 
     return(
         <nav className="main-menu">
@@ -18,6 +15,11 @@ const Menu = () => {
                 <li><NavLink to="/">Inicio</NavLink></li>
                 <li><NavLink to="/criptomonedas">Lista de criptomonedas</NavLink></li>
                 <li><NavLink to="/perfil">Perfil de { usuario.name }</NavLink></li>
+                <li><a onClick={()=>{
+                    localStorage.removeItem("tokenJMmarket")
+                    navigation("/login")
+                }} >Cerrar sesiòn </a></li>
+
             </ul>
         </nav>
     )
