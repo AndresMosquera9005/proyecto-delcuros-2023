@@ -1,4 +1,4 @@
-import "./Cuadricula.css"
+import "../componentes/Cuadricula.css"
 import Cripto from "./cripto/Cripto"
 import usePetition from "../hooks/usePetition"
 
